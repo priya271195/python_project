@@ -2,20 +2,20 @@
 from random import randint
 def main_of_battleship():
     board = []
-
+    #it will give 5*5 matrix
     for x in range(5):
         board.append(["O"] * 5)
-
+    #it will include spaces in each element by join
     def print_board(board):
         for row in board:
             print(" ".join(row))
-
+    
     print("Let's play Battleship!")
     print_board(board)
-
+    #it will generate any random row number
     def random_row(board):
         return randint(0, len(board) - 1)
-
+    #it will generate any random column number
     def random_col(board):
         return randint(0, len(board[0]) - 1)
 
@@ -27,13 +27,13 @@ def main_of_battleship():
     # Everything from here on should go in your for loop!
     # Be sure to indent four spaces!
 
-    for turn in range(4):
+    for turn in range(4):#you can play the game 4 time
         guess_row = int(input("Guess Row:"))
         guess_col = int(input("Guess Col:"))
         print("Turn",turn+1) # for calculating the turn
 
         if guess_row == ship_row and guess_col == ship_col:
-            print("Congratulations! You sunk my battleship!")
+            print("Congratulations! You sunk my battleship!")#when guess row and col equal to ur choosen values
             break;
         else:
             if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
@@ -43,7 +43,7 @@ def main_of_battleship():
 
 
             else:
-                print("You missed my battleship!")
+                print("You missed my battleship!")#when guess row and col not equal to choosen value
                 board[guess_row][guess_col] = "X"
 
 
